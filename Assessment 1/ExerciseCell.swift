@@ -5,4 +5,12 @@
 //  Created by Cly Cly on 3/5/2024.
 //
 
-import Foundation
+import UIKit
+
+class ExerciseCell: UICollectionViewCell {
+    @IBOutlet weak var imageView: UIImageView!
+    @IBOutlet weak var titleLabel: UILabel!
+
+    
+}
+
