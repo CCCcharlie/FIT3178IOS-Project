@@ -660,13 +660,13 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="WQU-x2-GLm">
                             <size key="itemSize" width="157" height="181"/>
-                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="headerReferenceSize" width="50" height="50"/>
                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
                             <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ExerciseCell" id="xga-6W-EgP" customClass="ExerciseCell" customModule="Assessment_1" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="0.0" width="100" height="156"/>
+                                <rect key="frame" x="0.0" y="50" width="100" height="156"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="6uO-F0-3PN">
                                     <rect key="frame" x="0.0" y="0.0" width="100" height="156"/>
@@ -700,12 +700,33 @@
                                 </connections>
                             </collectionViewCell>
                         </cells>
+                        <collectionReusableView key="sectionHeaderView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" reuseIdentifier="headerView" id="Se3-Nr-ALW" customClass="HeaderCollectionReusableView" customModule="Workshop03_1" customModuleProvider="target">
+                            <rect key="frame" x="0.0" y="0.0" width="393" height="50"/>
+                            <autoresizingMask key="autoresizingMask"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JNq-jQ-gba">
+                                    <rect key="frame" x="8" y="8" width="377" height="34"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                    <nil key="textColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <constraints>
+                                <constraint firstAttribute="trailingMargin" secondItem="JNq-jQ-gba" secondAttribute="trailing" id="T17-Ud-bX4"/>
+                                <constraint firstItem="JNq-jQ-gba" firstAttribute="top" secondItem="Se3-Nr-ALW" secondAttribute="topMargin" id="jJR-id-DEX"/>
+                                <constraint firstItem="JNq-jQ-gba" firstAttribute="leading" secondItem="Se3-Nr-ALW" secondAttribute="leadingMargin" id="wUD-3Q-Zf8"/>
+                                <constraint firstAttribute="bottomMargin" secondItem="JNq-jQ-gba" secondAttribute="bottom" id="wb2-26-u7E"/>
+                            </constraints>
+                            <connections>
+                                <outlet property="labelTextView" destination="JNq-jQ-gba" id="QCQ-TJ-WKZ"/>
+                            </connections>
+                        </collectionReusableView>
                         <connections>
                             <outlet property="dataSource" destination="4tf-MY-eyQ" id="WjB-HY-LxV"/>
                             <outlet property="delegate" destination="4tf-MY-eyQ" id="id9-5U-PnJ"/>
                         </connections>
                     </collectionView>
-                    <navigationItem key="navigationItem" title="Title" id="ALb-w1-O5X"/>
+                    <navigationItem key="navigationItem" title="Title" id="9gq-0G-Vrs"/>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kx-NL-fS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

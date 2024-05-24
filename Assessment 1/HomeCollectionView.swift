@@ -66,7 +66,9 @@ class HomeCollectionViewController: UICollectionViewController {
 //        cell.titleLabel.text = bodyPart.name
         
         let bodyPartName = uniqueBodyParts[indexPath.section]  // 获取正确的 bodyPart 名称
-        cell.titleLabel.text = bodyPartName  // 设置单元格标题为 bodyPart 名称
+        
+
+//        cell.titleLabel.text = bodyPartName  // 设置单元格标题为 bodyPart 名称
         
         
         
@@ -92,8 +94,11 @@ class HomeCollectionViewController: UICollectionViewController {
 //            }
 //        }
         if let exercises = groupedData[bodyPartName] {
-            let exercise = exercises[indexPath.item]  // 获取当前分区中对应的 DummyExercise
             
+            
+            let exercise = exercises[indexPath.item]  // 获取当前分区中对应的 DummyExercise
+            cell.titleLabel.text = exercise.name
+
             // 设置图像
             if let gifUrl = URL(string: exercise.gifUrl) {
                 URLSession.shared.dataTask(with: gifUrl) { (data, response, error) in
@@ -119,7 +124,16 @@ class HomeCollectionViewController: UICollectionViewController {
         }
         return cell
     }
+    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 
+        if let sectionHeader = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "headerView", for: indexPath) as? HeaderCollectionReusableView {
+            // 获取正确的 bodyPart 名称
+            let bodyPartName = uniqueBodyParts[indexPath.section]
+            sectionHeader.labelTextView.text = bodyPartName
+            return sectionHeader
+        }
+        return UICollectionReusableView()
+    }
 //    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
 //        let selectedBodyPart = bodyParts[indexPath.item]
 //        
