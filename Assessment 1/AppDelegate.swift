@@ -7,13 +7,18 @@
 
 import UIKit
 import CoreData
+import UserNotifications
+
 
 @main
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
     var databaseController: DatabaseProtocol?
     let coreDataController = CoreDataController.shared
-
+    var notificationsEnabled = false
+    static let NOTIFICATION_IDENTIFIER = "edu.monash.fit3178.week10"
+    static let CATEGORY_IDENTIFIER = "edu.monash.fit3178.week10.category"
+    
     var persistentContainer: NSPersistentContainer
 
     override init() {
@@ -25,12 +30,53 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         super.init()
     }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification) async -> UNNotificationPresentationOptions {
+        
+        return [.banner]
+    }
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        
+        UNUserNotificationCenter.current().requestAuthorization(options: [.alert, .sound]) { (granted, error) in
+            if granted {
+                self.notificationsEnabled = true
+                self.scheduleNotification()
+            } else {
+                self.notificationsEnabled = false
+            }
+        }
+        
         self.databaseController = coreDataController
+        UNUserNotificationCenter.current().delegate = self
         return true
     }
+    
+    func scheduleNotification() {
+        guard notificationsEnabled else {
+            print("Notifications not enabled")
+            return
+        }
+
+        let content = UNMutableNotificationContent()
+        content.title = "Time to work out"
+        content.body = "Pick the exercise for today..."
+        content.categoryIdentifier = AppDelegate.CATEGORY_IDENTIFIER
+
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 21600, repeats: true)  // 3秒后触发
+
+        let request = UNNotificationRequest(identifier: AppDelegate.NOTIFICATION_IDENTIFIER, content: content, trigger: trigger)
+
+        UNUserNotificationCenter.current().add(request) { (error) in
+            if let error = error {
+                print("Error adding notification: \(error.localizedDescription)")
+            } else {
+                print("Notification scheduled.")
+            }
+        }
+    }
+
 
     // MARK: UISceneSession Lifecycle
 

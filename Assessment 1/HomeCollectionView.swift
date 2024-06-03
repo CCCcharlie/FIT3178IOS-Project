@@ -69,6 +69,34 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
     }
     // MARK: - DatabaseListener
 
+    lazy var appDelegate = {
+        guard let appDelegate =  UIApplication.shared.delegate as?  AppDelegate else {
+            fatalError("No AppDelegate")
+        }
+        return appDelegate
+    }()
+    
+    
+    
+    @IBAction func simpleNotificationAction(_ sender: Any) {
+        guard appDelegate.notificationsEnabled else {
+            print("Notifications not enabled")
+            return
+        }
+        
+        let content = UNMutableNotificationContent()
+        content.title = "Time to work out "
+        content.body = "Pick the excerise for today..."
+        
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: 3, repeats: true)
+        
+        let request = UNNotificationRequest(identifier: AppDelegate.NOTIFICATION_IDENTIFIER, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request)
+        print("Notification scheduled.")
+    }
+    
+    
     func onExerciseChange(change: DatabaseChange, exercises: [Exercise]) {
         self.exercises = exercises
          print("Number of exercises in CoreData: \(exercises.count)") // 打印最新的 exercise 数量
