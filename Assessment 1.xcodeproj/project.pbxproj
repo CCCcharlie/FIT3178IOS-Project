@@ -7,7 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		822C28922BFB19DE0023548A /* Exercise.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 822C28902BFB19DE0023548A /* Exercise.xcdatamodeld */; };
+		820C66312C002AC2002F84BB /* A1-DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 820C662F2C002AC1002F84BB /* A1-DataModel.xcdatamodeld */; };
+		820C66362C002EAE002F84BB /* Exercise+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C66322C002EAD002F84BB /* Exercise+CoreDataClass.swift */; };
+		820C66372C002EAE002F84BB /* Exercise+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C66332C002EAD002F84BB /* Exercise+CoreDataProperties.swift */; };
+		820C66382C002EAE002F84BB /* User+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C66342C002EAD002F84BB /* User+CoreDataClass.swift */; };
+		820C66392C002EAE002F84BB /* User+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C66352C002EAD002F84BB /* User+CoreDataProperties.swift */; };
+		820C663B2C0031A9002F84BB /* MulticastDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C663A2C0031A9002F84BB /* MulticastDelegate.swift */; };
+		820C663E2C003251002F84BB /* DatabaseProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C663D2C003251002F84BB /* DatabaseProtocol.swift */; };
+		820C66402C003522002F84BB /* CoreDataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C663F2C003522002F84BB /* CoreDataController.swift */; };
+		820C66442C00407A002F84BB /* CreateExerciseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 820C66432C00407A002F84BB /* CreateExerciseViewController.swift */; };
 		822C28942BFC670B0023548A /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822C28932BFC670B0023548A /* EpisodeTableViewCell.swift */; };
 		822C28962BFC67A80023548A /* EpisodesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 822C28952BFC67A80023548A /* EpisodesTableViewController.swift */; };
 		8243ED882BD8B73000331543 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8243ED872BD8B73000331543 /* AppDelegate.swift */; };
@@ -22,11 +30,18 @@
 		8243EDA22BE47C2300331543 /* HeaderCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8243EDA12BE47C2300331543 /* HeaderCollectionReusableView.swift */; };
 		824E20912BED144E00669B30 /* SubmenuCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E20902BED144E00669B30 /* SubmenuCollectionViewController.swift */; };
 		824E20932BED92BE00669B30 /* SubmenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 824E20922BED92BE00669B30 /* SubmenuCell.swift */; };
-		82DC1E8F2BF725450043E1E6 /* DummyExercise.swift in Sources */ = {isa = PBXBuildFile; fileRef = 82DC1E8E2BF725450043E1E6 /* DummyExercise.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		822C28912BFB19DE0023548A /* Exercise.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Exercise.xcdatamodel; sourceTree = "<group>"; };
+		820C66302C002AC2002F84BB /* A1-DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "A1-DataModel.xcdatamodel"; sourceTree = "<group>"; };
+		820C66322C002EAD002F84BB /* Exercise+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataClass.swift"; sourceTree = "<group>"; };
+		820C66332C002EAD002F84BB /* Exercise+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Exercise+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		820C66342C002EAD002F84BB /* User+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataClass.swift"; sourceTree = "<group>"; };
+		820C66352C002EAD002F84BB /* User+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "User+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		820C663A2C0031A9002F84BB /* MulticastDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MulticastDelegate.swift; path = "Assessment 1/MulticastDelegate.swift"; sourceTree = "<group>"; };
+		820C663D2C003251002F84BB /* DatabaseProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DatabaseProtocol.swift; sourceTree = "<group>"; };
+		820C663F2C003522002F84BB /* CoreDataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataController.swift; sourceTree = "<group>"; };
+		820C66432C00407A002F84BB /* CreateExerciseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CreateExerciseViewController.swift; sourceTree = "<group>"; };
 		822C28932BFC670B0023548A /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EpisodeTableViewCell.swift; path = "../../Workshop05-2/Workshop05-0/EpisodeTableViewCell.swift"; sourceTree = "<group>"; };
 		822C28952BFC67A80023548A /* EpisodesTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = EpisodesTableViewController.swift; path = "../../Workshop05-2/Workshop05-0/EpisodesTableViewController.swift"; sourceTree = "<group>"; };
 		8243ED842BD8B73000331543 /* Assessment 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assessment 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -43,7 +58,6 @@
 		8243EDA12BE47C2300331543 /* HeaderCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderCollectionReusableView.swift; sourceTree = "<group>"; };
 		824E20902BED144E00669B30 /* SubmenuCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmenuCollectionViewController.swift; sourceTree = "<group>"; };
 		824E20922BED92BE00669B30 /* SubmenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SubmenuCell.swift; sourceTree = "<group>"; };
-		82DC1E8E2BF725450043E1E6 /* DummyExercise.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DummyExercise.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -57,11 +71,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		820C662E2C002A9B002F84BB /* DataModel */ = {
+			isa = PBXGroup;
+			children = (
+				820C662F2C002AC1002F84BB /* A1-DataModel.xcdatamodeld */,
+			);
+			path = DataModel;
+			sourceTree = "<group>";
+		};
+		820C663C2C003239002F84BB /* Database */ = {
+			isa = PBXGroup;
+			children = (
+				820C663D2C003251002F84BB /* DatabaseProtocol.swift */,
+			);
+			path = Database;
+			sourceTree = "<group>";
+		};
 		8243ED7B2BD8B73000331543 = {
 			isa = PBXGroup;
 			children = (
-				822C28902BFB19DE0023548A /* Exercise.xcdatamodeld */,
-				82DC1E8E2BF725450043E1E6 /* DummyExercise.swift */,
+				820C66432C00407A002F84BB /* CreateExerciseViewController.swift */,
+				820C663F2C003522002F84BB /* CoreDataController.swift */,
+				820C663A2C0031A9002F84BB /* MulticastDelegate.swift */,
+				820C66322C002EAD002F84BB /* Exercise+CoreDataClass.swift */,
+				820C66332C002EAD002F84BB /* Exercise+CoreDataProperties.swift */,
+				820C66342C002EAD002F84BB /* User+CoreDataClass.swift */,
+				820C66352C002EAD002F84BB /* User+CoreDataProperties.swift */,
 				8243ED862BD8B73000331543 /* Assessment 1 */,
 				8243ED852BD8B73000331543 /* Products */,
 			);
@@ -78,6 +113,8 @@
 		8243ED862BD8B73000331543 /* Assessment 1 */ = {
 			isa = PBXGroup;
 			children = (
+				820C663C2C003239002F84BB /* Database */,
+				820C662E2C002A9B002F84BB /* DataModel */,
 				822C28952BFC67A80023548A /* EpisodesTableViewController.swift */,
 				822C28932BFC670B0023548A /* EpisodeTableViewCell.swift */,
 				8243ED9B2BDA6A0A00331543 /* MenuVC.swift */,
@@ -172,14 +209,21 @@
 				8243ED9C2BDA6A0A00331543 /* MenuVC.swift in Sources */,
 				8243ED882BD8B73000331543 /* AppDelegate.swift in Sources */,
 				824E20932BED92BE00669B30 /* SubmenuCell.swift in Sources */,
+				820C663E2C003251002F84BB /* DatabaseProtocol.swift in Sources */,
 				8243ED8A2BD8B73000331543 /* SceneDelegate.swift in Sources */,
+				820C66362C002EAE002F84BB /* Exercise+CoreDataClass.swift in Sources */,
 				8243EDA22BE47C2300331543 /* HeaderCollectionReusableView.swift in Sources */,
 				824E20912BED144E00669B30 /* SubmenuCollectionViewController.swift in Sources */,
+				820C66392C002EAE002F84BB /* User+CoreDataProperties.swift in Sources */,
+				820C66442C00407A002F84BB /* CreateExerciseViewController.swift in Sources */,
+				820C66382C002EAE002F84BB /* User+CoreDataClass.swift in Sources */,
 				822C28962BFC67A80023548A /* EpisodesTableViewController.swift in Sources */,
-				822C28922BFB19DE0023548A /* Exercise.xcdatamodeld in Sources */,
 				8243ED9E2BE3D74900331543 /* HomeCollectionView.swift in Sources */,
 				822C28942BFC670B0023548A /* EpisodeTableViewCell.swift in Sources */,
-				82DC1E8F2BF725450043E1E6 /* DummyExercise.swift in Sources */,
+				820C66312C002AC2002F84BB /* A1-DataModel.xcdatamodeld in Sources */,
+				820C66372C002EAE002F84BB /* Exercise+CoreDataProperties.swift in Sources */,
+				820C66402C003522002F84BB /* CoreDataController.swift in Sources */,
+				820C663B2C0031A9002F84BB /* MulticastDelegate.swift in Sources */,
 				8243EDA02BE464EF00331543 /* ExerciseCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -403,13 +447,13 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
-		822C28902BFB19DE0023548A /* Exercise.xcdatamodeld */ = {
+		820C662F2C002AC1002F84BB /* A1-DataModel.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
-				822C28912BFB19DE0023548A /* Exercise.xcdatamodel */,
+				820C66302C002AC2002F84BB /* A1-DataModel.xcdatamodel */,
 			);
-			currentVersion = 822C28912BFB19DE0023548A /* Exercise.xcdatamodel */;
-			path = Exercise.xcdatamodeld;
+			currentVersion = 820C66302C002AC2002F84BB /* A1-DataModel.xcdatamodel */;
+			path = "A1-DataModel.xcdatamodeld";
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;
 		};

@@ -6,11 +6,18 @@
 //
 
 import UIKit
+import CoreData
+
 
 struct BodyPart: Decodable {
-    let name: String
+    let bodyPart: String
+    let equipment: String
     let gifUrl: String
-    // 可以添加其他属性
+    let id: String
+    let name: String
+    let target: String
+    let secondaryMuscles: [String]
+    let instructions: [String]
 }
 
 
@@ -25,7 +32,14 @@ struct DummyExercise: Decodable {
     let instructions: [String]
 }
 
-class HomeCollectionViewController: UICollectionViewController {
+
+class HomeCollectionViewController: UICollectionViewController, AddCreateExerciseDelegate, DatabaseListener {
+    var coreDataController: CoreDataController!
+    var managedObjectContext: NSManagedObjectContext?
+
+    var databaseController: DatabaseProtocol?
+    var exercises: [Exercise] = []
+    var listenerType: ListenerType = .exercise
     
     var gifUrlCache: [String: String] = [:]
     var bodyPartsCache: [String: [BodyPart]] = [:]
@@ -34,20 +48,97 @@ class HomeCollectionViewController: UICollectionViewController {
     var groupedData: [String: [DummyExercise]] = [:]
     var uniqueBodyParts: [String] = []
 
+    func didAddExercise(_ exercise: Exercise) {
+        // 将 Exercise 实例转换为 DummyExercise 实例
+        let dummyExercise = exercise.toDummyExercise()
+        
+        // 获取 bodyPart
+        let bodyPart = dummyExercise.bodyPart
+        
+        // 检查 groupedData 中是否已经存在相应的键
+        if groupedData[bodyPart] != nil {
+            // 如果存在，则将 dummyExercise 添加到现有的数组中
+            groupedData[bodyPart]?.append(dummyExercise)
+        } else {
+            // 如果不存在，则创建一个新的数组，并将 dummyExercise 添加到其中
+            groupedData[bodyPart] = [dummyExercise]
+        }
+        
+        // 刷新 collectionView，以便显示新的数据
+        self.collectionView.reloadData()
+    }
+    // MARK: - DatabaseListener
+
+    func onExerciseChange(change: DatabaseChange, exercises: [Exercise]) {
+        self.exercises = exercises
+         print("Number of exercises in CoreData: \(exercises.count)") // 打印最新的 exercise 数量
+         collectionView.reloadData()
+    }
+
+    func onUserChange(change: DatabaseChange, users: [User]) {
+        // Handle user changes if needed
+    }
+
+    // MARK: - Navigation
+    
+//    func storeDummyExercises(_ dummyExercises: [DummyExercise]) {
+//        for dummyExercise in dummyExercises {
+//            let exercise = NSEntityDescription.insertNewObject(forEntityName: "Exercise", into: persistentContainer.viewContext) as! Exercise
+//            exercise.name = dummyExercise.name
+//            exercise.bodyPart = dummyExercise.bodyPart
+//            exercise.equipment = dummyExercise.equipment
+//            exercise.gifUrl = dummyExercise.gifUrl
+//            exercise.target = dummyExercise.target
+//            exercise.secondaryMuscles = dummyExercise.secondaryMuscles.joined(separator: ", ")
+//            exercise.instructions = dummyExercise.instructions.joined(separator: "\n")
+//
+//            // Save the context after each exercise is added
+//            saveContext()
+//        }
+//    }
+
+    @IBAction func Addbutton(_ sender: UIButton) {
+        self.shouldPerformSegue(withIdentifier: "c", sender: nil)
+        navigationController?.popViewController(animated: true)
+    }
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        // 初始化 collection view
-//        fetchBodyParts()
-        
-        setupDummyData()
+
+        guard let coreDataController = coreDataController else {
+            fatalError("CoreDataController is not initialized")
+        }
+
+        managedObjectContext = coreDataController.persistentContainer.viewContext
+
+        // Load dummy data
+        _ = setupDummyData()
+
         collectionView.setCollectionViewLayout(createWorkshop2Layout3(), animated: false)
+
+        let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonTapped))
+        self.navigationItem.rightBarButtonItem = nextButton
+
 
     }
     
+    @objc func nextButtonTapped() {
+        // 获取 Storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // 获取新的 ViewController
+        if let createExerciseVC = storyboard.instantiateViewController(withIdentifier: "CreateExerciseViewController") as? CreateExerciseViewController {
+            // 设置 delegate
+            createExerciseVC.addCreateExerciseDelegate = self
+            createExerciseVC.databaseController = self.databaseController
+            // 跳转到新的 ViewController
+            self.navigationController?.pushViewController(createExerciseVC, animated: true)
+        }
+    }
 
-    
+
+
     // 实现 UICollectionViewDataSource 协议方法
     override func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         let bodyPart = uniqueBodyParts[section]
@@ -61,7 +152,7 @@ class HomeCollectionViewController: UICollectionViewController {
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
         
-        let bodyPart = bodyParts[indexPath.section]
+//        let c = bodyParts[indexPath.section]
 //
 //        cell.titleLabel.text = bodyPart.name
         
@@ -165,40 +256,37 @@ class HomeCollectionViewController: UICollectionViewController {
 //        <#code#>
 //    }
 
-    func fetchBodyParts() {
-        
+    func fetchBodyParts(completion: @escaping () -> Void) {
         // 检查是否有缓存数据
         if let cachedBodyParts = bodyPartsCache["all"] {
-            
-            print("using cache ")
-
+            print("Using cache")
             // 直接使用缓存数据
             self.bodyParts = cachedBodyParts
             DispatchQueue.main.async {
                 self.collectionView.reloadData()
             }
-
+            completion()
             return
-
         }
-        print("cachedBodyParts bodyPartsCache \(bodyPartsCache)")
-
+        
         let url = URL(string: "https://exercisedb.p.rapidapi.com/exercises/bodyPartList")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [
-            "X-RapidAPI-Key": "8e858fa2bfmshd4cce323c6fad71p1df64cjsnca80adf9b4dd",
+            "X-RapidAPI-Key": "0e5564552cmshab1f7bb2d0093a4p15e5e2jsn1f3237cf9987",
             "X-RapidAPI-Host": "exercisedb.p.rapidapi.com"
         ]
         
         let task = URLSession.shared.dataTask(with: request) { [weak self] (data, response, error) in
             if let error = error {
                 print("Error fetching body parts: \(error)")
+                completion()
                 return
             }
             
             guard let data = data else {
                 print("No data returned from API")
+                completion()
                 return
             }
             
@@ -208,6 +296,7 @@ class HomeCollectionViewController: UICollectionViewController {
                 
                 // Create a dispatch group to track when all requests are completed
                 let group = DispatchGroup()
+                var allExercises: [BodyPart] = [] // 临时数组保存所有 BodyPart 对象
                 
                 for bodyPartName in bodyPartNames {
                     group.enter() // Enter the dispatch group for each request
@@ -219,12 +308,8 @@ class HomeCollectionViewController: UICollectionViewController {
                         switch result {
                         case .success(let exercises):
                             print("Exercises for \(bodyPartName): \(exercises)")
-                            
-                            // Create a new BodyPart object with name and gifUrl
-                            let bodyPart = BodyPart(name: bodyPartName, gifUrl: exercises.first?.gifUrl ?? "")
-                            
-                            // Append the new BodyPart to bodyParts array
-                            self?.bodyParts.append(bodyPart)
+                            // Add fetched body parts to the temporary array
+                            allExercises.append(contentsOf: exercises)
                             
                         case .failure(let error):
                             print("Error fetching exercises for \(bodyPartName): \(error)")
@@ -234,28 +319,47 @@ class HomeCollectionViewController: UICollectionViewController {
                 
                 // Notify when all requests are completed
                 group.notify(queue: .main) {
-                    
                     // All requests are completed
                     // Cache the body parts data
-                    self?.bodyPartsCache["all"] = self?.bodyParts
-                    // Reload UI or handle exercises data here
+                    self?.bodyParts = allExercises // 将临时数组赋值给 self.bodyParts
+                    self?.bodyPartsCache["all"] = allExercises
+                    
+                    // Group the fetched data by bodyPart
+                    self?.groupedData = allExercises.reduce(into: [String: [DummyExercise]]()) { result, bodyPart in
+                        // Convert BodyPart to DummyExercise
+                        let dummyExercise = DummyExercise(
+                            bodyPart: bodyPart.bodyPart,
+                            equipment: bodyPart.equipment,
+                            gifUrl: bodyPart.gifUrl,
+                            id: bodyPart.id,
+                            name: bodyPart.name,
+                            target: bodyPart.target,
+                            secondaryMuscles: bodyPart.secondaryMuscles,
+                            instructions: bodyPart.instructions
+                        )
+                        result[bodyPart.bodyPart, default: []].append(dummyExercise)
+                    }
+                    
+                    // Reload collection view
                     self?.collectionView.reloadData()
+                    completion() // 调用 completion handler
                 }
                 
             } catch {
                 print("Error decoding JSON: \(error)")
+                completion()
             }
         }
         
         task.resume()
-        
     }
+
 
     func fetchExercises(for bodyPartName: String, completion: @escaping (Result<[BodyPart], Error>) -> Void) {
         // Check if GIF URL is already cached
         if let cachedUrl = gifUrlCache[bodyPartName] {
             // Return cached URL
-            let cachedBodyPart = BodyPart(name: bodyPartName, gifUrl: cachedUrl)
+            let cachedBodyPart = BodyPart(bodyPart: bodyPartName, equipment: "", gifUrl: cachedUrl, id: "", name: "", target: "", secondaryMuscles: [], instructions: [])
             completion(.success([cachedBodyPart]))
             print("Using cached data for \(bodyPartName)")
             return
@@ -263,20 +367,21 @@ class HomeCollectionViewController: UICollectionViewController {
 
         // API request
         // Construct API request URL for a specific body part
-        let url = URL(string: "https://exercisedb.p.rapidapi.com/exercises/bodyPart/\(bodyPartName)")!
+        let url = URL(string: "https://exercisedb.p.rapidapi.com/exercises/bodyPart/\(bodyPartName)?limit=2")!
         var request = URLRequest(url: url)
         request.httpMethod = "GET"
         request.allHTTPHeaderFields = [
-            "X-RapidAPI-Key": "8e858fa2bfmshd4cce323c6fad71p1df64cjsnca80adf9b4dd",
+            "X-RapidAPI-Key": "0e5564552cmshab1f7bb2d0093a4p15e5e2jsn1f3237cf9987",
             "X-RapidAPI-Host": "exercisedb.p.rapidapi.com"
         ]
+        request.timeoutInterval = 30 // timeout gap
 
         let task = URLSession.shared.dataTask(with: request) { (data, response, error) in
             if let error = error {
                 // Request failed, attempt to use cached data
                 if let cachedUrl = self.gifUrlCache[bodyPartName] {
                     // Return cached URL
-                    let cachedBodyPart = BodyPart(name: bodyPartName, gifUrl: cachedUrl)
+                    let cachedBodyPart = BodyPart(bodyPart: bodyPartName, equipment: "", gifUrl: cachedUrl, id: "", name: "", target: "", secondaryMuscles: [], instructions: [])
                     completion(.success([cachedBodyPart]))
                     print("Using cached data for \(bodyPartName) due to error: \(error)")
                 } else {
@@ -311,7 +416,7 @@ class HomeCollectionViewController: UICollectionViewController {
         
         task.resume()
     }
-    
+
     func setupDummyData() -> [DummyExercise] {
         let dummyData = """
         [
@@ -369,38 +474,128 @@ class HomeCollectionViewController: UICollectionViewController {
         """.data(using: .utf8)!
         
         do {
-            let decoder = JSONDecoder()
-            let dummyExercises = try decoder.decode([DummyExercise].self, from: dummyData)
+//            let decoder = JSONDecoder()
+//            let dummyExercises = try decoder.decode([DummyExercise].self, from: dummyData)
+//            
+//            coreDataController.storeDummyExercises(dummyExercises)
             
-            // 将 DummyExercise 转换为 BodyPart
-            self.bodyParts = dummyExercises.map { BodyPart(name: $0.bodyPart, gifUrl: $0.gifUrl) }
-//             uniqueBodyParts = Set(bodyParts.map { $0.name })
-
             
-             groupedData = dummyExercises.reduce(into: [String: [DummyExercise]]()) { result, exercise in
-                let bodyPart = exercise.bodyPart
-                result[bodyPart, default: []].append(exercise)
+            // Retrieve exercises saved in Core Data
+            
+            let savedExercises = coreDataController.fetchAllExercises()
+            
+            
+            guard !savedExercises.isEmpty else {
+                // Handle the case when there are no saved exercises
+//                print("No saved exercises, using dummy data")
+//                
+//
+//
+//    
+//                 groupedData = dummyExercises.reduce(into: [String: [DummyExercise]]()) { result, exercise in
+//                    let bodyPart = exercise.bodyPart
+//                    result[bodyPart, default: []].append(exercise)
+//                }
+//                // 刷新 collection view
+//                self.collectionView.reloadData()
+//                
+//                // 使用 reduce(into:_:) 方法将 DummyExercise 数据按照 bodyPart 分组
+//
+//                
+//                
+//                uniqueBodyParts = groupedData.keys.sorted() // 保证顺序一致
+                
+                
+                // Handle the case when there are no saved exercises
+                print("No saved exercises, using dummy data")
+                
+                // Retrieve dummy exercises from fetchBodyParts()
+                fetchBodyParts {
+                    // Convert fetched body parts to dummy exercises
+                    let dummyExercises = self.bodyParts.map { bodyPart in
+                        return DummyExercise(
+                            bodyPart: bodyPart.bodyPart,
+                            equipment: bodyPart.equipment,
+                            gifUrl: bodyPart.gifUrl,
+                            id: bodyPart.id, // Assuming DummyExercise has an 'id' property
+                            name: bodyPart.name,
+                            target: bodyPart.target,
+                            secondaryMuscles: bodyPart.secondaryMuscles,
+                            instructions: bodyPart.instructions
+                        )
+                    }
+                    
+                    // Store dummy exercises in Core Data
+                    self.coreDataController.storeDummyExercises(dummyExercises)
+                    
+                    // Group the fetched data by bodyPart
+                    self.groupedData = dummyExercises.reduce(into: [String: [DummyExercise]]()) { result, exercise in
+                        result[exercise.bodyPart, default: []].append(exercise)
+                    }
+                    
+                    // Reload collection view
+                    DispatchQueue.main.async {
+                        self.collectionView.reloadData()
+                    }
+                    
+                    // Update uniqueBodyParts
+                    self.uniqueBodyParts = self.groupedData.keys.sorted()
+                }
+                
+                // Return an empty array or some placeholder if needed
+                return []
             }
-            // 刷新 collection view
-            self.collectionView.reloadData()
-            
-            // 使用 reduce(into:_:) 方法将 DummyExercise 数据按照 bodyPart 分组
 
+            // Do something with savedExercises if needed
+            
+//            self.bodyParts = savedExercises.compactMap { exercise in
+//                guard let name = exercise.bodyPart, let gifUrl = exercise.gifUrl else {
+//                    return nil
+//                }
+//                return BodyPart(name: name, gifUrl: gifUrl)
+//            }
+            
+
+            // have data saved
+
+
+            groupedData = savedExercises.reduce(into: [String: [DummyExercise]]()) { result, exercise in
+                guard let bodyPart = exercise.bodyPart else { return }
+                
+                // Create a new DummyExercise object with Exercise properties
+                let dummyExercise = DummyExercise(
+                    bodyPart: bodyPart,
+                    equipment: exercise.equipment ?? "",
+                    gifUrl: exercise.gifUrl ?? "",
+                    id: "", // You might need to handle this depending on your DummyExercise model
+                    name: exercise.name ?? "",
+                    target: exercise.target ?? "",
+                    secondaryMuscles: exercise.secondaryMuscles?.components(separatedBy: ", ") ?? [],
+                    instructions: exercise.instructions?.components(separatedBy: "\n") ?? []
+                )
+                
+                // Append the DummyExercise to the result dictionary
+                result[bodyPart, default: []].append(dummyExercise)
+            
+        
+            }
+            self.collectionView.reloadData()
+        
             
             
             uniqueBodyParts = groupedData.keys.sorted() // 保证顺序一致
 
-            // Flatten the dictionary into an array of DummyExercise
-//            let groupedExercises = groupedData.values.flatMap { $0 }
-//            print("uniqueBodyParts: \(uniqueBodyParts)")
 
-            return dummyExercises
+            return []
 
         } catch {
             print("Error decoding JSON: \(error)")
             return []
         }
     }
+    
+    
+    
     override func numberOfSections(in collectionView: UICollectionView) -> Int {
         return uniqueBodyParts.count
 
@@ -526,7 +721,16 @@ class HomeCollectionViewController: UICollectionViewController {
                     destination.exercises = exercisesForSelectedBodyPart
                 }
             }
+            
         }
+        else if segue.identifier == "c" {
+            if let createExerciseVC = segue.destination as? CreateExerciseViewController {
+                createExerciseVC.addCreateExerciseDelegate = self
+            }
+        }
+
+            
+        
     }
 
 }

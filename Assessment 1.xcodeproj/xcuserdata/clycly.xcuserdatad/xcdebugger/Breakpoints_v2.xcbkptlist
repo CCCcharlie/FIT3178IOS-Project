@@ -78,8 +78,8 @@
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "525"
-            endingLineNumber = "525"
+            startingLineNumber = "720"
+            endingLineNumber = "720"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
             <Locations>
@@ -205,8 +205,8 @@
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "516"
-            endingLineNumber = "516"
+            startingLineNumber = "711"
+            endingLineNumber = "711"
             landmarkName = "prepare(for:sender:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -221,8 +221,8 @@
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "405"
-            endingLineNumber = "405"
+            startingLineNumber = "600"
+            endingLineNumber = "600"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -230,111 +230,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "21C4EC6F-E80A-466E-BBAF-A36514E7EE8F"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Assessment 1/HomeCollectionView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "378"
-            endingLineNumber = "378"
-            landmarkName = "setupDummyData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "21C4EC6F-E80A-466E-BBAF-A36514E7EE8F - 115aec46831783f7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Assessment_1.HomeCollectionViewController.setupDummyData() -&gt; Swift.Array&lt;Assessment_1.DummyExercise&gt;"
-                  moduleName = "Assessment 1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "339"
-                  endingLineNumber = "339"
-                  offsetFromSymbolStart = "1058">
-               </Location>
-               <Location
-                  uuid = "21C4EC6F-E80A-466E-BBAF-A36514E7EE8F - 115aec46831783f7"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Assessment_1.HomeCollectionViewController.setupDummyData() -&gt; Swift.Array&lt;Assessment_1.DummyExercise&gt;"
-                  moduleName = "Assessment 1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "339"
-                  endingLineNumber = "339"
-                  offsetFromSymbolStart = "1063">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "81E66104-ED82-4490-8E97-4AD2593DB28B"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "Assessment 1/HomeCollectionView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "396"
-            endingLineNumber = "396"
-            landmarkName = "setupDummyData()"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "81E66104-ED82-4490-8E97-4AD2593DB28B - 115aec4683178059"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Assessment_1.HomeCollectionViewController.setupDummyData() -&gt; Swift.Array&lt;Assessment_1.DummyExercise&gt;"
-                  moduleName = "Assessment 1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "357"
-                  endingLineNumber = "357"
-                  offsetFromSymbolStart = "2206">
-               </Location>
-               <Location
-                  uuid = "81E66104-ED82-4490-8E97-4AD2593DB28B - 115aec4683178059"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "Assessment_1.HomeCollectionViewController.setupDummyData() -&gt; Swift.Array&lt;Assessment_1.DummyExercise&gt;"
-                  moduleName = "Assessment 1"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "357"
-                  endingLineNumber = "357"
-                  offsetFromSymbolStart = "2053">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "247BFDF1-C64D-4CE0-906A-400FF144F31A"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "406"
-            endingLineNumber = "406"
+            startingLineNumber = "601"
+            endingLineNumber = "601"
             landmarkName = "numberOfSections(in:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -349,8 +253,8 @@
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "152"
+            endingLineNumber = "152"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -397,8 +301,8 @@
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "72"
-            endingLineNumber = "72"
+            startingLineNumber = "163"
+            endingLineNumber = "163"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
             <Locations>
@@ -445,8 +349,8 @@
             filePath = "Assessment 1/HomeCollectionView.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "62"
-            endingLineNumber = "62"
+            startingLineNumber = "153"
+            endingLineNumber = "153"
             landmarkName = "collectionView(_:cellForItemAt:)"
             landmarkType = "7">
          </BreakpointContent>
@@ -592,6 +496,452 @@
             startingLineNumber = "89"
             endingLineNumber = "89"
             landmarkName = "tableView(_:cellForRowAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB735264-8C8D-43D4-B040-8B98F50304D9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "61"
+            endingLineNumber = "61"
+            landmarkName = "didAddExercise(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB735264-8C8D-43D4-B040-8B98F50304D9 - 24a17114e03d3526"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.didAddExercise(Assessment_1.Exercise) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "761">
+               </Location>
+               <Location
+                  uuid = "EB735264-8C8D-43D4-B040-8B98F50304D9 - 24a17114e03d3526"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.didAddExercise(Assessment_1.Exercise) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "56"
+                  endingLineNumber = "56"
+                  offsetFromSymbolStart = "420">
+               </Location>
+               <Location
+                  uuid = "EB735264-8C8D-43D4-B040-8B98F50304D9 - 24a17114e03d35cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.didAddExercise(Assessment_1.Exercise) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "420">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "16D68459-55F9-4FC3-85A0-223DD15C145A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "66"
+            endingLineNumber = "66"
+            landmarkName = "didAddExercise(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "16D68459-55F9-4FC3-85A0-223DD15C145A - 24a17114e03d35cd"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.didAddExercise(Assessment_1.Exercise) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "61"
+                  endingLineNumber = "61"
+                  offsetFromSymbolStart = "1256">
+               </Location>
+               <Location
+                  uuid = "16D68459-55F9-4FC3-85A0-223DD15C145A - 24a17114e03d340f"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.didAddExercise(Assessment_1.Exercise) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "63"
+                  endingLineNumber = "63"
+                  offsetFromSymbolStart = "1027">
+               </Location>
+               <Location
+                  uuid = "16D68459-55F9-4FC3-85A0-223DD15C145A - 24a17114e03d34aa"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.didAddExercise(Assessment_1.Exercise) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "1027">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "88E5CC80-ED15-4874-B076-8F076EBBF54A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CreateExerciseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "60"
+            endingLineNumber = "60"
+            landmarkName = "createExercise(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D18E8EB3-893D-40BF-A937-1AD3A7F48873"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CreateExerciseViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "createExercise(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41D6331B-7111-40EC-88DF-EE49BDBBC344"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "onExerciseChange(change:exercises:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "41D6331B-7111-40EC-88DF-EE49BDBBC344 - e17962e390e19bfe"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.onUserChange(change: Assessment_1.DatabaseChange, users: Swift.Array&lt;Assessment_1.User&gt;) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "38">
+               </Location>
+               <Location
+                  uuid = "41D6331B-7111-40EC-88DF-EE49BDBBC344 - 6ebca81ad5528d0a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.HomeCollectionViewController.onExerciseChange(change: Assessment_1.DatabaseChange, exercises: Swift.Array&lt;Assessment_1.Exercise&gt;) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/Assessment%201/HomeCollectionView.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "166">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "F1BE2F13-A964-4671-9EF4-49529736C214"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoreDataController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "46"
+            endingLineNumber = "46"
+            landmarkName = "storeDummyExercises(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "472E1DAA-7AA9-4762-9E68-64796EEA2788"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "550"
+            endingLineNumber = "550"
+            landmarkName = "setupDummyData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "753D0BD8-615F-4538-AE7C-5033F57BA37C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoreDataController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "storeDummyExercises(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "753D0BD8-615F-4538-AE7C-5033F57BA37C - 50fa5b3c8046ff5c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.CoreDataController.storeDummyExercises(Swift.Array&lt;Assessment_1.DummyExercise&gt;) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/CoreDataController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "135">
+               </Location>
+               <Location
+                  uuid = "753D0BD8-615F-4538-AE7C-5033F57BA37C - 50fa5b3c8046ff1e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.CoreDataController.storeDummyExercises(Swift.Array&lt;Assessment_1.DummyExercise&gt;) -&gt; ()"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/CoreDataController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "33"
+                  endingLineNumber = "33"
+                  offsetFromSymbolStart = "135">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "9925B755-124B-4C7D-970F-35C35B03451E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "488"
+            endingLineNumber = "488"
+            landmarkName = "setupDummyData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "10CC0C3B-8473-4A5F-8506-2BEC78FB86C4"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "489"
+            endingLineNumber = "489"
+            landmarkName = "setupDummyData()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "A433804D-427E-4C79-88AB-1DB35CD88DA0"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "CoreDataController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "fetchAllExercises()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "A433804D-427E-4C79-88AB-1DB35CD88DA0 - 3e12ab5ea73100da"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.CoreDataController.fetchAllExercises() -&gt; Swift.Array&lt;Assessment_1.Exercise&gt;"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/CoreDataController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "1126">
+               </Location>
+               <Location
+                  uuid = "A433804D-427E-4C79-88AB-1DB35CD88DA0 - 3e12ab5ea7310018"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Assessment_1.CoreDataController.fetchAllExercises() -&gt; Swift.Array&lt;Assessment_1.Exercise&gt;"
+                  moduleName = "Assessment 1"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/clycly/Downloads/Assessment%201/CoreDataController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "129"
+                  endingLineNumber = "129"
+                  offsetFromSymbolStart = "1126">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "37CC096F-229E-4B57-811D-F67F414F1834"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "160"
+            endingLineNumber = "160"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D78B6EA9-1AD0-48F5-917E-97073D68564C"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+            landmarkName = "collectionView(_:cellForItemAt:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B50588BB-0130-42C0-83F2-B5005589C0F1"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "147"
+            endingLineNumber = "147"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "E0329958-DD1D-426D-A23A-9F5211F0F463"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "145"
+            endingLineNumber = "145"
+            landmarkName = "collectionView(_:numberOfItemsInSection:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "50E531E2-7EFE-4163-8400-F84C69C4A28E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Assessment 1/HomeCollectionView.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "viewDidLoad()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
