@@ -26,6 +26,23 @@ class CoreDataController: NSObject, DatabaseProtocol, NSFetchedResultsController
         }
         super.init()
     }
+    
+    func convertToExercise(_ dummyExercise: DummyExercise) -> Exercise? {
+        let exercise = NSEntityDescription.insertNewObject(forEntityName: "Exercise", into: persistentContainer.viewContext) as! Exercise
+        exercise.name = dummyExercise.name
+        exercise.bodyPart = dummyExercise.bodyPart
+        exercise.equipment = dummyExercise.equipment
+        exercise.gifUrl = dummyExercise.gifUrl
+        exercise.target = dummyExercise.target
+        exercise.secondaryMuscles = dummyExercise.secondaryMuscles.joined(separator: ", ")
+        exercise.instructions = dummyExercise.instructions.joined(separator: "\n")
+        
+        // Save the context after converting to Exercise
+        saveContext()
+        cleanup()
+        
+        return exercise
+    }
     func storeDummyExercises(_ dummyExercises: [DummyExercise]) {
         
 //        clearAllExercises()

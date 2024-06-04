@@ -13,6 +13,9 @@ import UserNotifications
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
+
+    
+    
     var databaseController: DatabaseProtocol?
     let coreDataController = CoreDataController.shared
     var notificationsEnabled = false

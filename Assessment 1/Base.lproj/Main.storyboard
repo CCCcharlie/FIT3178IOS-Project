@@ -692,10 +692,12 @@
                                         <constraint firstAttribute="trailing" secondItem="h7V-an-jY9" secondAttribute="trailing" id="lrX-V1-7as"/>
                                     </constraints>
                                 </collectionViewCellContentView>
+                                <gestureRecognizers/>
                                 <size key="customSize" width="100" height="156"/>
                                 <connections>
                                     <outlet property="imageView" destination="h7V-an-jY9" id="cXh-jD-M0Z"/>
                                     <outlet property="titleLabel" destination="igJ-Sz-lEJ" id="1U0-8b-KGc"/>
+                                    <outletCollection property="gestureRecognizers" destination="Hox-ze-RTO" appends="YES" id="F8f-7G-LEe"/>
                                     <segue destination="qn4-JB-s5p" kind="show" identifier="showExercises" id="KYg-xp-lOS"/>
                                 </connections>
                             </collectionViewCell>
@@ -740,8 +742,12 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="TapGesture" destination="Hox-ze-RTO" id="nzH-0b-Uwj"/>
+                    </connections>
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Kx-NL-fS4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer numberOfTapsRequired="2" id="Hox-ze-RTO"/>
             </objects>
             <point key="canvasLocation" x="2954.9618320610684" y="683.80281690140851"/>
         </scene>

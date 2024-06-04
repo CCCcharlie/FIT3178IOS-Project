@@ -34,6 +34,8 @@ struct DummyExercise: Decodable {
 
 
 class HomeCollectionViewController: UICollectionViewController, AddCreateExerciseDelegate, DatabaseListener {
+    @IBOutlet var TapGesture:
+    UITapGestureRecognizer!
     var coreDataController: CoreDataController!
     var managedObjectContext: NSManagedObjectContext?
 
@@ -148,7 +150,9 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
         let nextButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: #selector(nextButtonTapped))
         self.navigationItem.rightBarButtonItem = nextButton
 
-
+        let doubleTapGesture = UITapGestureRecognizer(target: self, action: #selector(handleDoubleTap(_:)))
+        doubleTapGesture.numberOfTapsRequired = 2
+        collectionView.addGestureRecognizer(doubleTapGesture)
     }
     
     @objc func nextButtonTapped() {
@@ -283,6 +287,34 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
 //    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 //        <#code#>
 //    }
+    // IBAction for double tap gesture
+    @objc func handleDoubleTap(_ gestureRecognizer: UITapGestureRecognizer) {
+        let point = gestureRecognizer.location(in: collectionView)
+        if let indexPath = collectionView.indexPathForItem(at: point) {
+            let bodyPartName = uniqueBodyParts[indexPath.section]
+            if var exercises = groupedData[bodyPartName] {
+                let dummyExerciseToDelete = exercises[indexPath.item]
+                
+                // 首先将 DummyExercise 转换为 Exercise
+                guard let exerciseToDelete = CoreDataController.shared.convertToExercise(dummyExerciseToDelete) else {
+                    print("Failed to convert DummyExercise to Exercise.")
+                    return
+                }
+                
+                // 调用 deleteExercise 删除 Exercise
+                CoreDataController.shared.deleteExercise(exercise: exerciseToDelete)
+                
+                exercises.remove(at: indexPath.item)
+                groupedData[bodyPartName] = exercises
+                collectionView.deleteItems(at: [indexPath])
+            }
+        }
+        self.collectionView.reloadData()
+
+    }
+
+
+
 
     func fetchBodyParts(completion: @escaping () -> Void) {
         // 检查是否有缓存数据
