@@ -111,21 +111,7 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
 
     // MARK: - Navigation
     
-//    func storeDummyExercises(_ dummyExercises: [DummyExercise]) {
-//        for dummyExercise in dummyExercises {
-//            let exercise = NSEntityDescription.insertNewObject(forEntityName: "Exercise", into: persistentContainer.viewContext) as! Exercise
-//            exercise.name = dummyExercise.name
-//            exercise.bodyPart = dummyExercise.bodyPart
-//            exercise.equipment = dummyExercise.equipment
-//            exercise.gifUrl = dummyExercise.gifUrl
-//            exercise.target = dummyExercise.target
-//            exercise.secondaryMuscles = dummyExercise.secondaryMuscles.joined(separator: ", ")
-//            exercise.instructions = dummyExercise.instructions.joined(separator: "\n")
-//
-//            // Save the context after each exercise is added
-//            saveContext()
-//        }
-//    }
+
 
     @IBAction func Addbutton(_ sender: UIButton) {
         self.shouldPerformSegue(withIdentifier: "c", sender: nil)
@@ -184,38 +170,10 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ExerciseCell", for: indexPath) as! ExerciseCell
         
-//        let c = bodyParts[indexPath.section]
-//
-//        cell.titleLabel.text = bodyPart.name
         
         let bodyPartName = uniqueBodyParts[indexPath.section]  // 获取正确的 bodyPart 名称
         
 
-//        cell.titleLabel.text = bodyPartName  // 设置单元格标题为 bodyPart 名称
-        
-        
-        
-        // 设置图片（如果有的话）
-//        if !bodyPart.gifUrl.isEmpty {
-//            if let gifUrl = URL(string: bodyPart.gifUrl) {
-//                // 使用异步方式加载图像
-//                URLSession.shared.dataTask(with: gifUrl) { (data, response, error) in
-//                    // 检查是否有错误和数据
-//                    guard let data = data, let image = UIImage(data: data) else {
-//                        // 加载失败时，设置默认图像或执行其他处理
-//                        DispatchQueue.main.async {
-//                            // 设置默认图像
-//                             cell.imageView?.image = UIImage(named: "Image")
-//                        }
-//                        return
-//                    }
-//                    // 加载成功时，更新单元格的图像
-//                    DispatchQueue.main.async {
-//                        cell.imageView?.image = image
-//                    }
-//                }.resume()
-//            }
-//        }
         if let exercises = groupedData[bodyPartName] {
             
             
@@ -223,27 +181,45 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
             cell.titleLabel.text = exercise.name
 
             // 设置图像
-            if let gifUrl = URL(string: exercise.gifUrl) {
-                URLSession.shared.dataTask(with: gifUrl) { (data, response, error) in
-                    guard let data = data, let image = UIImage(data: data) else {
-                        DispatchQueue.main.async {
+            let gifUrlString = exercise.gifUrl
+            print("Loading image from URL: \(gifUrlString)")  // 添加日志
+            if let gifUrl = URL(string: gifUrlString) {
+                print("Created URL: \(gifUrl)")  // 添加日志
+                if gifUrl.isFileURL {
+                    let fileUrl = gifUrl
+                    do {
+                        let imageData = try Data(contentsOf: fileUrl)
+                        if let image = UIImage(data: imageData) {
+                            cell.imageView?.image = image
+                        } else {
+                            print("Failed to create image from data")  // 添加日志
                             cell.imageView?.image = UIImage(named: "Image")  // 设置默认图像
                         }
-                        return
+                    } catch {
+                        print("Error loading image data from \(fileUrl): \(error)")  // 添加日志
+                        cell.imageView?.image = UIImage(named: "Image")  // 设置默认图像
                     }
-                    DispatchQueue.main.async {
-                        cell.imageView?.image = image
-                    }
-                }.resume()
-            }
-            
-            else {
-                
-                cell.imageView?.image = UIImage(named: "Image") // 设置默认图像
-                
-                // 如果 gifUrl 为空，则设置默认图像或执行其他处理
-                // cell.imageView?.image = UIImage(named: "placeholder_image")
-            }
+                } else {
+                    URLSession.shared.dataTask(with: gifUrl) { (data, response, error) in
+                        guard let data = data, let image = UIImage(data: data) else {
+                            DispatchQueue.main.async {
+                                print("Failed to load image from URL: \(gifUrl), error: \(error?.localizedDescription ?? "Unknown error")")  // 添加日志
+                                cell.imageView?.image = UIImage(named: "Image")
+                            }
+                            return
+                        }
+                        DispatchQueue.main.async {
+                            cell.imageView?.image = image
+                        }
+                    }.resume()
+                }
+            } else {
+                print("Failed to create URL from string: \(gifUrlString)")  // 添加日志
+                cell.imageView?.image = UIImage(named: "Image")  // 设置默认图像
+            } 
+//            else {
+//                cell.imageView?.image = UIImage(named: "Image")
+//            }
         }
         return cell
     }
@@ -257,33 +233,7 @@ class HomeCollectionViewController: UICollectionViewController, AddCreateExercis
         }
         return UICollectionReusableView()
     }
-//    override func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//        let selectedBodyPart = bodyParts[indexPath.item]
-//        
-//        
-//        // 使用 setupDummyData 生成的数据
-//        let dummyExercises = setupDummyData()
-//        
-////        fetchExercises(for: selectedBodyPart.name) { result in
-////            switch result {
-////            case .success(let exercises):
-////                let nextViewController = SubmenuCollectionViewController()
-////                nextViewController.exercises = exercises
-////                print("sending exercises \(exercises)")
-////
-////                DispatchQueue.main.async {
-////                    self.navigationController?.pushViewController(nextViewController, animated: true)
-////                }
-////            case .failure(let error):
-////                print("Error fetching exercises for \(selectedBodyPart.name): \(error)")
-////            }
-////        }
-//        
-//        performSegue(withIdentifier: "showExercises", sender: selectedBodyPart)
-//         
-//        
-//    }
-    
+
 //    override func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
 //        <#code#>
 //    }

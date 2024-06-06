@@ -41,21 +41,45 @@ class CreateExerciseViewController: UIViewController, UIImagePickerControllerDel
         
 
     }
-
+    func areAllFieldsFilled() -> Bool {
+        // ensure field being enter
+        guard let name = nameTextField.text, !name.isEmpty,
+              let equipment = equipmentTextField.text, !equipment.isEmpty,
+              let target = targetTextField.text, !target.isEmpty,
+              let secondaryMuscles = secondaryMusclesTextField.text, !secondaryMuscles.isEmpty,
+              let instructions = instructionsTextViewField.text, !instructions.isEmpty,
+              let gifUrlString = gifUrl?.absoluteString, !gifUrlString.isEmpty else {
+            return false
+        }
+        return true
+    }
+    
     @IBAction func createExercise(_ sender: Any) {
+        
+
         guard let name = nameTextField.text, !name.isEmpty,
               let equipment = equipmentTextField.text, !equipment.isEmpty else {
             displayMessage(title: "Incomplete Fields", message: "Please ensure the required fields are filled.")
             return
         }
-
+        guard areAllFieldsFilled() else {
+            displayMessage(title: "Incomplete Fields", message: "Please ensure all fields are filled.")
+            return
+        }
         let bodyPartIndex = bodyPartSegmentedControl.selectedSegmentIndex
         let bodyPart = bodyPartSegmentedControl.titleForSegment(at: bodyPartIndex) ?? ""
 
         let target = targetTextField.text ?? ""
         let secondaryMuscles = secondaryMusclesTextField.text ?? ""
         let instructions = instructionsTextViewField.text ?? ""
-        guard let gifUrlString = gifUrl?.absoluteString ?? Bundle.main.path(forResource: "Image", ofType: "jpg") else { return }
+        guard let gifUrlString = gifUrl?.absoluteString else {
+            guard let defaultImageUrl = Bundle.main.url(forResource: "Image", withExtension: "jpg") else {
+                return
+            }
+            let gifUrlString = defaultImageUrl.absoluteString
+            // Remaining code...
+            return
+        }
 
         let newExercies = databaseController?.addExercise(name: name,
                                                 bodyPart: bodyPart,
